@@ -13,9 +13,9 @@ def index(request):
     if request.GET.get('order') == 'due':
         tasks = Task.objects.order_by('due_at')
     else:
-        task = Task.objects.order_by('-posted_at')
+        tasks = Task.objects.order_by('-posted_at')
 
     context = {
-        'task': tasks
+        'tasks': tasks
     }
     return render(request, 'todo/index.html', context)
